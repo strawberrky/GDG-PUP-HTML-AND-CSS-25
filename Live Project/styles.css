@@ -61,6 +61,36 @@ header p {
   color: var(--text-muted);
   font-weight: 300;
 }
+/*add*/
+.corner-img {
+  position: absolute;
+  width: 12vw;    /* adjust size */
+  max-width: 20vw;
+  height: auto;
+  z-index: 10;
+  pointer-events: none; /* so it doesn't block clicking */
+  opacity: 0;
+  transform: scale(0.9);
+  animation: pop 0.4s forwards ease;
+}
+
+@keyframes pop {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* Left corner */
+.corner-img.left {
+  top: 50px;
+  left: 50px;
+}
+/* Right corner */
+.corner-img.right {
+  top: 50px;
+  right: 50px;
+}
+
 
 /* Badges */
 .header-badge {
@@ -198,10 +228,11 @@ section h2::after {
 }
 
 .about-image img {
-  width: 85%;
-  height: 85%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: transform 0.3s ease;
+  padding: 5px;
 }
 
 .about-image:hover img {
